@@ -10,19 +10,18 @@ class HashProgram:
         self.root.title("Hash Program")
         self.root.configure(bg="#F0F0F0")
 
-        # Create and configure the header label
+        #header
         self.header_label = tk.Label(root, text="Select a file", font=("Arial", 12, "bold"), bg="#F0F0F0")
         self.header_label.pack(pady=10)
-
-        # Create and configure the file label
+        
         self.file_label = tk.Label(root, font=("Arial", 12, "bold"), bg="#F0F0F0")
         self.file_label.pack(pady=10)
 
-        # Create and configure the upload button
+        #Upload file
         self.upload_button = tk.Button(root, text="Select File", font=("Arial", 12), command=self.upload_file, bg="#4CAF50", fg="white")
         self.upload_button.pack(pady=10)
 
-        # Create and configure the repetition label and entry
+        #Number of repetitions
         self.repetition_label = tk.Label(root, text="Number of Repetitions:", font=("Arial", 12), bg="#F0F0F0")
         self.repetition_label.pack()
         self.repetition_entry = tk.Entry(root, font=("Arial", 12))
@@ -32,7 +31,7 @@ class HashProgram:
         self.hash_labels = {}
         self.time_labels = {}
 
-        # Define the available hash algorithms
+        #Hash names
         self.hash_algorithms = {
             "CRC32": self.calculate_crc32,
             "MD5": hashlib.md5,
@@ -42,7 +41,7 @@ class HashProgram:
             "SHA-512": hashlib.sha512
         }
 
-        # Create and configure labels for each hash algorithm
+        #Hash
         for algorithm in self.hash_algorithms:
             self.hash_labels[algorithm] = tk.Label(root, text=f"{algorithm}: ", font=("Arial", 14, "bold"), bg="#F0F0F0")
             self.hash_labels[algorithm].pack()
@@ -50,11 +49,11 @@ class HashProgram:
             self.time_labels[algorithm] = tk.Label(root, text="Time: ", font=("Arial", 10), bg="#F0F0F0")
             self.time_labels[algorithm].pack()
 
-        # Create and configure the compute button
+        #Compute button
         self.compute_button = tk.Button(root, text="Compute Hashes", font=("Arial", 12), command=self.compute_hashes, bg="#2196F3", fg="white", state=tk.DISABLED)
         self.compute_button.pack(pady=10)
 
-        # Create and configure the clear button
+        #Clear button
         self.clear_button = tk.Button(root, text="Clear", font=("Arial", 12), command=self.clear_selection, bg="#F44336", fg="white")
         self.clear_button.pack(pady=10)
 
@@ -99,7 +98,7 @@ class HashProgram:
         self.compute_button.configure(state=tk.DISABLED)
 
     def calculate_crc32(self, data):
-        # Calculate the CRC32 hash value
+        #Calculate hash
         crc32_value = binascii.crc32(data) & 0xffffffff
         return "{:08x}".format(crc32_value)
 
@@ -114,13 +113,13 @@ class HashProgram:
             self.time_labels[algorithm].configure(text="Time: ")
 
 if __name__ == "__main__":
-    # Create the Tkinter root window
+    #window
     root = tk.Tk()
     root.geometry("400x600")
     root.configure(bg="#F0F0F0")
     
-    # Create an instance of the HashProgram class
+    #inst
     hash_program = HashProgram(root)
     
-    # Start the Tkinter event loop
+    #start
     root.mainloop()
