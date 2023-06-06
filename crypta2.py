@@ -1,3 +1,4 @@
+#Ansar Sansyzbaev,Nursultan Kabenov, Yerassyl Omirtay, Yernar Salyk,Adil Shonbayev, Nurkeerimov ALikhan
 import tkinter as tk
 import tkinter.filedialog as filedialog
 import hashlib
