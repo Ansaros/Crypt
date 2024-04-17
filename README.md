@@ -1,1 +1,0 @@
-# ARjs_ImageMarker
